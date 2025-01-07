@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @Setter
 @ToString
 @Entity
-@Table(name = "sensor_datas")
+@Table(name = "sensor_data")
 @NoArgsConstructor
 public class SensorData {
 

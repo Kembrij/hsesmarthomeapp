@@ -31,6 +31,7 @@ public class Sensor {
     private User user;
 
     @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "sensortype_id")
     private SensorType sensorType;
 
     @OneToOne(fetch = FetchType.LAZY)

@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.List;
+
 @Getter
 @Setter
 @ToString
@@ -20,9 +22,18 @@ public class Device {
     @Column(name = "ID", nullable = false)
     private Long id;
 
+    @Column(name = "TITLES")
     private String title;
+
+    @Column(name = "DESCRIPTION")
     private String description;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    private DeviceType deviceType;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "scheduleddevicedtate")
+    private List<ScheduledDeviceState> scheduledDeviceStates;
 }

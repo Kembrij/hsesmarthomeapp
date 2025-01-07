@@ -1,33 +1,33 @@
 package ru.kembrij.smarthomeapi.model.entity;
 
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-
 @Getter
 @Setter
 @ToString
 @Entity
-@Table(name = "sensor_types")
+@Table(name = "SCHEDULED_STATES_OF_DEVICES")
 @NoArgsConstructor
-public class SensorType {
+public class ScheduledDeviceState {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID", nullable = false)
     private Long id;
 
-    @Column(name = "TITLE")
-    private String title;
+    @Column(name = "STATE")
+    private String state;
 
-    @Column(name = "DESCTIPTION")
-    private String description;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "DEVICE_ID")
+    private Device device;
 
-    @OneToOne
-    @JoinColumn(name = "sensor_id")
-    private Sensor sensor;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Scheduler scheduler;
 
 }
