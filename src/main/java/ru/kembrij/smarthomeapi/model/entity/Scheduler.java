@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 
 @Getter
@@ -38,14 +39,20 @@ public class Scheduler {
     @Column(name ="DATEOFSTART")
     private Boolean dateOfStart;
 
-    @Column(name = "DATESTARTON")
-    private LocalDateTime dateStartOn;
+    @Column(name = "DATESCHEDULERSTARTON")
+    private LocalDateTime dateSchedulerStartOn;
 
-    @Column(name = "DATESTARTOFF")
-    private LocalDateTime dateStartOff;
+    @Column(name = "DATESCHEDULERSTARTOFF")
+    private LocalDateTime dateSchedulerStartOff;
 
     @Column(name = "DURATION")
-    private String duration;
+    private Duration duration;
+
+    @Column(name = "DATEDURATIONTARTON")
+    private LocalDateTime dateDurationStartOn;
+
+    @Column(name = "DATEDURATIONTARTOFF")
+    private LocalDateTime dateDurationStartOff;
 
     @Column(name = "WEEKLYMONDAY")
     private Boolean weeklyMonday;
