@@ -24,8 +24,12 @@ public class Scheduler {
     @Column(name = "ID", nullable = false)
     private Long id;
 
+    @Column(name = "ISACTIVE")
+    private Boolean isActive;
+
     @Column(name = "DATEOFCREATION", nullable = false)
     private LocalDateTime dateOfCreation;
+
 
     @Column(name = "TITLE")
     private String title;
