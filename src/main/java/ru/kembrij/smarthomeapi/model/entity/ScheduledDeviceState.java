@@ -28,6 +28,7 @@ public class ScheduledDeviceState {
     private Device device;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "SCHEDULER_ID")
     private Scheduler scheduler;
 
 }

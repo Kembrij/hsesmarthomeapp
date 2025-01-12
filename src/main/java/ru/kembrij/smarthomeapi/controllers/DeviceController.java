@@ -12,16 +12,4 @@ import ru.kembrij.smarthomeapi.service.DeviceService;
 @AllArgsConstructor
 public class DeviceController {
 
-    private final DeviceService deviceService;
-
-    @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Integer> deleteAnswer(@PathVariable("id") Long id) {
-        deviceService.deleteById(id);
-        return ResponseEntity.ok(1);
-    }
-
-    @PostMapping("/create")
-    public ResponseEntity<Long> createAnswer(@RequestBody Device device) {
-        return ResponseEntity.ok(deviceService.save(device).getId());
-    }
 }

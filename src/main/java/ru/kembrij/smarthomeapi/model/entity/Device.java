@@ -2,15 +2,13 @@ package ru.kembrij.smarthomeapi.model.entity;
 
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.List;
 
 @Getter
 @Setter
+@Data
 @ToString
 @Entity
 @Table(name = "devices")
@@ -25,6 +23,9 @@ public class Device {
     @Column(name = "TITLES")
     private String title;
 
+    @Column(name = "SCHEDULER")
+    private Scheduler scheduler;
+
     @Column(name = "DESCRIPTION")
     private String description;
 
@@ -34,6 +35,6 @@ public class Device {
     @OneToOne(fetch = FetchType.LAZY)
     private DeviceType deviceType;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "scheduleddevicedtate")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "device")
     private List<ScheduledDeviceState> scheduledDeviceStates;
 }

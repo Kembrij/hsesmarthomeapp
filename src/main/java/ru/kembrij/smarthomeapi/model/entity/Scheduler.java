@@ -2,22 +2,20 @@ package ru.kembrij.smarthomeapi.model.entity;
 
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
+import java.io.Serializable;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
 @ToString
+@Data
 @Entity
 @Table(name = "schedulers")
 @NoArgsConstructor
-
-public class Scheduler {
+public class Scheduler implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -30,7 +28,6 @@ public class Scheduler {
     @Column(name = "DATEOFCREATION", nullable = false)
     private LocalDateTime dateOfCreation;
 
-
     @Column(name = "TITLE")
     private String title;
 
@@ -38,6 +35,7 @@ public class Scheduler {
     private String description;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "DEVICE_ID")
     private Device device;
 
     @Column(name ="DATEOFSTART")

@@ -12,7 +12,6 @@ import java.util.List;
 @AllArgsConstructor
 public class DeviceServiceImpl implements DeviceService {
 
-    private final DeviceRepository deviceRepository;
 
     @Override
     public List<Device> findAll() {

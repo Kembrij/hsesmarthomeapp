@@ -8,10 +8,8 @@ import ru.kembrij.smarthomeapi.service.UserService;
 
 @RestController
 @RequestMapping("/api/users")
-@RequiredArgsConstructor
 public class UserController {
 
-    private final UserService userService;
     //private final BCryptPasswordEncoder encoder;
 
 
