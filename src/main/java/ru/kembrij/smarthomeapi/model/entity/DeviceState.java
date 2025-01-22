@@ -2,17 +2,16 @@ package ru.kembrij.smarthomeapi.model.entity;
 
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 @Getter
 @Setter
 @ToString
 @Entity
+@Builder
 @Table(name = "STATE_OF_DEVICES")
 @NoArgsConstructor
+@AllArgsConstructor
 public class DeviceState {
 
     @Id

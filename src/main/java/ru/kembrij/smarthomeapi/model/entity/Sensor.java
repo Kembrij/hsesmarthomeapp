@@ -1,19 +1,18 @@
 package ru.kembrij.smarthomeapi.model.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import ru.kembrij.smarthomeapi.model.entity.enums.UserRole;
 
 
 @Getter
 @Setter
 @ToString
+@Builder
 @Entity
 @Table(name = "sensors")
 @NoArgsConstructor
+@AllArgsConstructor
 public class Sensor {
 
     @Id

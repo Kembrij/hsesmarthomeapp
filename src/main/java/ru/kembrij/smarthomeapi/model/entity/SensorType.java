@@ -1,18 +1,19 @@
 package ru.kembrij.smarthomeapi.model.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
+import ru.kembrij.smarthomeapi.model.entity.enums.TypeOfSensor;
+import ru.kembrij.smarthomeapi.model.entity.enums.UserRole;
 
 
 @Getter
 @Setter
 @ToString
 @Entity
+@Builder
 @Table(name = "sensor_types")
 @NoArgsConstructor
+@AllArgsConstructor
 public class SensorType {
 
     @Id
@@ -30,4 +31,6 @@ public class SensorType {
     @JoinColumn(name = "sensor_id")
     private Sensor sensor;
 
+    @Enumerated(EnumType.STRING)
+    private TypeOfSensor type;
 }

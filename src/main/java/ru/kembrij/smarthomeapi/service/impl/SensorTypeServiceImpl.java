@@ -2,8 +2,10 @@ package ru.kembrij.smarthomeapi.service.impl;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import ru.kembrij.smarthomeapi.dto.SensorTypeDTO;
 import ru.kembrij.smarthomeapi.model.entity.Sensor;
 import ru.kembrij.smarthomeapi.model.entity.SensorType;
+import ru.kembrij.smarthomeapi.repository.SensorTypeRepository;
 import ru.kembrij.smarthomeapi.service.SensorTypeService;
 
 import java.util.List;
@@ -12,6 +14,9 @@ import java.util.List;
 @AllArgsConstructor
 
 public class SensorTypeServiceImpl implements SensorTypeService {
+
+    private final SensorTypeRepository sensorTypeRepository;
+
     @Override
     public List<SensorType> findAll() {
         return List.of();
@@ -23,7 +28,7 @@ public class SensorTypeServiceImpl implements SensorTypeService {
     }
 
     @Override
-    public Sensor findById(Long id) {
+    public SensorType getById(Long id) {
         return null;
     }
 
@@ -33,12 +38,21 @@ public class SensorTypeServiceImpl implements SensorTypeService {
     }
 
     @Override
-    public SensorType update(SensorType sensorType) {
-        return null;
+    public SensorType update(SensorTypeDTO sensorTypeDTO) {
+        var sensorType = getById(sensorTypeDTO.getId());
+            sensorType.setTitle(sensorTypeDTO.getTitle());
+            sensorType.setDescription(sensorTypeDTO.getDescription());
+        return sensorTypeRepository.save(sensorType);
     }
 
+
     @Override
-    public SensorType save(SensorType sensorType) {
-        return null;
+    public SensorType save(SensorTypeDTO sensorTypeDTO) {
+        var sensorType = SensorType.builder()
+                .title(sensorTypeDTO.getTitle())
+                .description(sensorTypeDTO.getDescription())
+                .type(sensorTypeDTO.getTypeOfSensor())
+                .build();
+        return sensorTypeRepository.save(sensorType);
     }
 }

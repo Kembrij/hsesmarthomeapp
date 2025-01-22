@@ -8,7 +8,6 @@ public class MQTTOptions {
     public Boolean hasUpdates() {
         return false;
     }
-
     public Boolean setOptionsUpdated(boolean updated) {
         return false;
     }

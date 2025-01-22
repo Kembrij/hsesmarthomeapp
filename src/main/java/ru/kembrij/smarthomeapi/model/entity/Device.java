@@ -10,9 +10,11 @@ import java.util.List;
 @Setter
 @Data
 @ToString
+@Builder
 @Entity
 @Table(name = "devices")
 @NoArgsConstructor
+@AllArgsConstructor
 public class Device {
 
     @Id
@@ -24,7 +26,8 @@ public class Device {
     private String title;
 
     @Column(name = "SCHEDULER")
-    private Scheduler scheduler;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "scheduler")
+    private List<Scheduler> scheduler;
 
     @Column(name = "DESCRIPTION")
     private String description;

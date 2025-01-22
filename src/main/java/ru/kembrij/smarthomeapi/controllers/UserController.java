@@ -10,7 +10,7 @@ import ru.kembrij.smarthomeapi.service.UserService;
 @RequestMapping("/api/users")
 public class UserController {
 
-    //private final BCryptPasswordEncoder encoder;
+    private final BCryptPasswordEncoder encoder;
 
 
 }

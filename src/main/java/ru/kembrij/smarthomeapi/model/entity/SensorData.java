@@ -1,10 +1,7 @@
 package ru.kembrij.smarthomeapi.model.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
@@ -13,8 +10,10 @@ import java.time.LocalDateTime;
 @Setter
 @ToString
 @Entity
+@Builder
 @Table(name = "sensor_data")
 @NoArgsConstructor
+@AllArgsConstructor
 public class SensorData {
 
     @Id

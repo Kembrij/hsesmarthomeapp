@@ -1,5 +1,6 @@
 package ru.kembrij.smarthomeapi.service;
 
+import ru.kembrij.smarthomeapi.dto.SensorTypeDTO;
 import ru.kembrij.smarthomeapi.model.entity.Sensor;
 import ru.kembrij.smarthomeapi.model.entity.SensorType;
 
@@ -15,7 +16,7 @@ public interface SensorTypeService {
 
     void deleteById(Long id);
 
-    SensorType update(SensorType sensorType);
+    SensorType update(SensorTypeDTO sensorTypeDTO);
 
-    SensorType save(SensorType sensorType);
+    SensorType save(SensorTypeDTO sensorTypeDTO);
 }

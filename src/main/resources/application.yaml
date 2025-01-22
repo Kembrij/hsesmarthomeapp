@@ -5,6 +5,7 @@ spring:
     password: admin
     driver-class-name: org.postgresql.Driver
   security:
+    authenticated: ${SPRING_SECURITY_AUTHENTICATED:true}
     user:
       name: admin
       password: admin

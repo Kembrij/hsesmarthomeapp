@@ -13,11 +13,13 @@ public class MQTTModule implements MqttManagerListener {
     private MQTTOptions mqttOptions = null;
     private MQTTListener mqttListener = null;
     private MQTTService mqttService = null;
-
+/*
     MQTTModule(MQTTOptions mqttOptions, MQTTListener mqttListener) {
         this.mqttOptions = mqttOptions;
         this.mqttListener = mqttListener;
     }
+
+ */
 
     @PostConstruct
     void onStart() {

@@ -2,18 +2,17 @@ package ru.kembrij.smarthomeapi.model.entity;
 
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import ru.kembrij.smarthomeapi.model.entity.enums.UserRole;
 
 @Getter
 @Setter
 @ToString
+@Builder
 @Entity
 @Table(name = "users")
 @NoArgsConstructor
+@AllArgsConstructor
 public class User {
 
     @Id
@@ -26,6 +25,9 @@ public class User {
 
     @Column(name = "LASTNAME")
     private String lastname;
+
+    @Column(name = "NICKNAME")
+    private String nickname;
 
     @Column(name = "EMAIL")
     private String email;

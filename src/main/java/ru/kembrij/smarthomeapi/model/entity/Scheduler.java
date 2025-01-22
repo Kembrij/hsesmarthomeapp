@@ -12,10 +12,12 @@ import java.time.LocalDateTime;
 @Setter
 @ToString
 @Data
+@Builder
 @Entity
 @Table(name = "schedulers")
 @NoArgsConstructor
-public class Scheduler implements Serializable {
+@AllArgsConstructor
+public class Scheduler {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
