@@ -13,6 +13,8 @@ public interface SensorRepository extends JpaRepository<Sensor, Long> {
 
     Optional<Sensor> findById(Long id);
 
+    Optional<Sensor> findByTopic(String topic);
+
     List<Sensor> findAllByUser(User user);
 
 }

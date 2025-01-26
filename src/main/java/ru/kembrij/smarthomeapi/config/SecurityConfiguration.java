@@ -21,13 +21,25 @@ import ru.kembrij.smarthomeapi.security.JwtAuthenticationEntryPoint;
 import ru.kembrij.smarthomeapi.security.JwtConfigurer;
 import ru.kembrij.smarthomeapi.security.JwtTokenFilter;
 import ru.kembrij.smarthomeapi.security.UserDetailsServiceImpl;
+import org.springframework.context.annotation.*;
+import org.springframework.http.*;
+import org.springframework.security.config.annotation.method.configuration.*;
+import org.springframework.security.config.annotation.web.builders.*;
+import org.springframework.security.config.annotation.web.configuration.*;
+import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
+import org.springframework.security.config.http.*;
+import org.springframework.security.crypto.bcrypt.*;
+import org.springframework.security.crypto.password.*;
+import org.springframework.security.web.*;
+import org.springframework.security.web.authentication.*;
 
 
 @Configuration
 @RequiredArgsConstructor
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
-public class SecurityConfiguration  {
+public class SecurityConfiguration {
+
 
     @Value("${spring.security.authenticated}")
     private boolean securityAuthenticated;
@@ -40,10 +52,17 @@ public class SecurityConfiguration  {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-         return http
-                 .csrf(AbstractHttpConfigurer::disable)
-                 .exceptionHandling(Customizer.withDefaults())
-                 .build();
+        http.csrf(csrf -> csrf.disable())
+        .authorizeHttpRequests(authorize -> {
+                    authorize.requestMatchers(HttpMethod.POST, "/register").permitAll();
+                    authorize.requestMatchers(HttpMethod.POST, "/auth/login").permitAll();
+                    authorize.requestMatchers(HttpMethod.GET, "/auth/login").permitAll();
+                    authorize.anyRequest().authenticated();})
+                .addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class)
+                .exceptionHandling(exception -> {
+                    exception.authenticationEntryPoint(jwtAuthenticationEntryPoint);
+                });
+        return http.build();
     }
 
     @Bean
@@ -56,6 +75,9 @@ public class SecurityConfiguration  {
         return new BCryptPasswordEncoder();
     }
 
-
-
 }
+
+
+
+
+

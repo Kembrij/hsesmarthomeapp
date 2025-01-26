@@ -22,5 +22,9 @@ public class DeviceState {
     @Column(name = "STATE")
     private String state;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "DEVICE_ID")
+    private Device device;
+
 
 }

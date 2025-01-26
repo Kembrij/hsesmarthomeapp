@@ -6,11 +6,12 @@ import java.util.List;
 
 public interface UserService {
 
-    //void register(RegistrationRequestDTO request);
 
     List<User> getAll();
 
     User findByNickname(String username);
+
+    User findByLogin(String login);
 
     User findById(Long id);
 

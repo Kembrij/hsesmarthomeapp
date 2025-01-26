@@ -15,10 +15,8 @@ import lombok.*;
 public class ScheduledDeviceState {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID", nullable = false)
-    private Long id;
-
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name="schdev_id_generator", sequenceName = "schdev_seq", allocationSize=50)
     @Column(name = "STATE")
     private String state;
 

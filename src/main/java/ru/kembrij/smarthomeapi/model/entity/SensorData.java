@@ -17,7 +17,8 @@ import java.time.LocalDateTime;
 public class SensorData {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name="sensordata_id_generator", sequenceName = "sensordata_seq", allocationSize=50)
     @Column(name = "ID", nullable = false)
     private Long id;
 

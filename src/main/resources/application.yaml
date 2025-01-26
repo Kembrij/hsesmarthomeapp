@@ -4,14 +4,25 @@ spring:
     username: postgres
     password: admin
     driver-class-name: org.postgresql.Driver
+
+  jwt:
+    access:
+      secret: ${JWT_ACCESS_SECRET:ewhjjimdsva4pu/rLcUvM/FCThAAv7QWkYmvGJ9zhs1BDG9uhZkeR96c1OB7Z6VdrnbfQXOLkzoks70UybBTj7Ua6AcJjVMCzAEVc27kqEPthqun32vU8Sf9G1wov8uDTP8rfYM0UKVYT88JZ1XnYNEFzIZ2rQrt9J9YlP6ImvQrpOvona5UDfApqla5HyijTyVIqwT5kYgylRuS90etklvI0/nZmYQZ2CvmwdJlcHfqO0cxqulx6IkHU+1XtRaCIigzlG0rSGmDV+0EumfPoYYghAUz64Cr6IyCupHkRQst+++Txl63SXgJNCMTw2braKgdH1D3KPwqp5ilMUZb4ibwl4pare7wYbhFMLanL8yAfq/ZluAlc=ev}
+      session:
+        time-millis: ${JWT_ACCESS_SESSION_TIME_MILLIS:3600000}
+    refresh:
+      secret: ${JWT_REFRESH_SECRET:ybrbejaceecDqdVavM+s8sM1BuXRM/qquneISqDAKlBVTGwIneTrI2qJHoF/PjcM4R2zQP+pKxIyohZ4EbRM9FF+lgx3AB4zix2FRTZo9W7ONX2cmBKRHvq5txZ2QRTb8gP5nQfbC9hqlvBd4DuYeAiCQOzygVN9lxrECoabPpE7odWcExFMV5JiSJAOJOjzhDcQ28Z16nftNhlNLBD7hIZNtePdRIM6uBJd3uKslRlkMzn6LGPx0I3Oc6n2J7sUd6rVi989YZxzzSw3osMi9eKGorALkWwIZijjXu8lq/Oq77/sRGhMJzqz9A7kATlnQjXnUMTnV6EFM6UsR+yNcVMVsRUkSfgsa2YgoKY7I3SDGtZ849b884=}
+      session:
+        time-millis: ${JWT_REFRESH_SESSION_TIME_MILLIS:2592000000}
+
   security:
     authenticated: ${SPRING_SECURITY_AUTHENTICATED:true}
     user:
-      name: admin
-      password: admin
-
+        name: admin
+        password: admin
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     database: postgresql
     show-sql: true
+

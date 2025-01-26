@@ -17,7 +17,7 @@ import ru.kembrij.smarthomeapi.service.impl.SensorTypeServiceImpl;
 @AllArgsConstructor
 public class SensorTypeController {
 
-    private final SensorTypeService sensorTypeService;
+    private final SensorTypeServiceImpl sensorTypeService;
 
     @PostMapping("/create")
     public ResponseEntity<Long> createSensorType(@RequestBody SensorTypeDTO sensorTypeDTO) {

@@ -9,6 +9,7 @@ import ru.kembrij.smarthomeapi.model.entity.enums.UserRole;
 @Setter
 @ToString
 @Builder
+@Data
 @Entity
 @Table(name = "users")
 @NoArgsConstructor
@@ -16,7 +17,8 @@ import ru.kembrij.smarthomeapi.model.entity.enums.UserRole;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name="user)generator", sequenceName = "user_seq", allocationSize=50)
     @Column(name = "ID", nullable = false)
     private Long id;
 

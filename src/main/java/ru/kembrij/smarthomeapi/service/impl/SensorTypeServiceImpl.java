@@ -3,6 +3,7 @@ package ru.kembrij.smarthomeapi.service.impl;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.kembrij.smarthomeapi.dto.SensorTypeDTO;
+import ru.kembrij.smarthomeapi.exceptions.NotFoundException;
 import ru.kembrij.smarthomeapi.model.entity.Sensor;
 import ru.kembrij.smarthomeapi.model.entity.SensorType;
 import ru.kembrij.smarthomeapi.repository.SensorTypeRepository;
@@ -28,8 +29,12 @@ public class SensorTypeServiceImpl implements SensorTypeService {
     }
 
     @Override
-    public SensorType getById(Long id) {
+    public Sensor findById(Long id) {
         return null;
+    }
+
+    public SensorType getById(Long id) {
+        return sensorTypeRepository.findById(id).orElseThrow(SensorTypeServiceImpl::getNotFoundException);
     }
 
     @Override
@@ -54,5 +59,9 @@ public class SensorTypeServiceImpl implements SensorTypeService {
                 .type(sensorTypeDTO.getTypeOfSensor())
                 .build();
         return sensorTypeRepository.save(sensorType);
+    }
+
+    private static NotFoundException getNotFoundException() {
+        return new NotFoundException("Тип датчика ненайден");
     }
 }

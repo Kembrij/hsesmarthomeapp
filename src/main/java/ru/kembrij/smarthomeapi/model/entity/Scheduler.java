@@ -20,7 +20,8 @@ import java.time.LocalDateTime;
 public class Scheduler {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name="sch_id_generator", sequenceName = "sch_seq", allocationSize=50)
     @Column(name = "ID", nullable = false)
     private Long id;
 
@@ -37,7 +38,7 @@ public class Scheduler {
     private String description;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "DEVICE_ID")
+    @JoinColumn(name = "device_id")
     private Device device;
 
     @Column(name ="DATEOFSTART")

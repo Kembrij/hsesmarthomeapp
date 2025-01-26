@@ -9,7 +9,7 @@ public interface DeviceStateService {
 
     List<DeviceState> findAll();
 
-    List<DeviceState> findByDevice(Device device);
+    List<DeviceState> findALLDeviceStateByDevice(Device device);
 
     DeviceState findById(Long id);
 

@@ -2,6 +2,7 @@ package ru.kembrij.smarthomeapi.service.impl;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import ru.kembrij.smarthomeapi.dto.DeviceTypeDTO;
 import ru.kembrij.smarthomeapi.model.entity.Device;
 import ru.kembrij.smarthomeapi.model.entity.DeviceType;
 import ru.kembrij.smarthomeapi.service.DeviceTypeService;
@@ -26,9 +27,8 @@ public class DeviceTypeServiceImpl implements DeviceTypeService {
     public DeviceType findById(Long id) {
         return null;
     }
-
     @Override
-    public DeviceType save(DeviceType deviceType) {
+    public DeviceType save(DeviceTypeDTO deviceTypeDTO) {
         return null;
     }
 
@@ -36,9 +36,8 @@ public class DeviceTypeServiceImpl implements DeviceTypeService {
     public void deleteById(Long id) {
 
     }
-
     @Override
-    public DeviceType update(DeviceType deviceType) {
+    public DeviceType update(DeviceTypeDTO deviceTypeDTO) {
         return null;
     }
 }

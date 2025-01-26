@@ -1,5 +1,6 @@
 package ru.kembrij.smarthomeapi.service;
 
+import ru.kembrij.smarthomeapi.dto.DeviceTypeDTO;
 import ru.kembrij.smarthomeapi.model.entity.Device;
 import ru.kembrij.smarthomeapi.model.entity.DeviceState;
 import ru.kembrij.smarthomeapi.model.entity.DeviceType;
@@ -14,9 +15,9 @@ public interface DeviceTypeService {
 
     DeviceType findById(Long id);
 
-    DeviceType save(DeviceType deviceType);
+    DeviceType save(DeviceTypeDTO deviceTypeDTO);
 
     void deleteById(Long id);
 
-    DeviceType update(DeviceType deviceType);
+    DeviceType update(DeviceTypeDTO deviceTypeDTO);
 }
